@@ -24,14 +24,9 @@ SECRET_KEY = 'django-insecure-d&f(^2@8d=vkxcx5=mbvo!@x()3y_+k&v=y==7edjfzx-1bw6y
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["agame-com.herokuapp.com"]
+ALLOWED_HOSTS = ["https://agame-com.herokuapp.com"]
 
 # Application definition
-
-STATICFILES_FINDERS = (
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    #'django.contrib.staticfiles.finders.AppDirectoriesFinder',    #causes verbose duplicate notifications in django 1.9
-)
 
 INSTALLED_APPS = [
     'admin_interface',
@@ -104,6 +99,11 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+)
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
