@@ -25,8 +25,8 @@ admin.site.site_header = ""
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('Game.urls')),
-    path('account/', include('accounts.urls'))
+    path('account/', include('accounts.urls')),
 
 
-    url(r'^media/(?P<path>.*)$', serve,{'document_root':       settings.MEDIA_ROOT}),
+    url(r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}),
     url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),]
