@@ -100,6 +100,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
