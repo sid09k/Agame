@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+
+{% block search %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Search</title>
+        <link rel = "icon" href ="https://i.ibb.co/cwLqrN7/Webp-net-resizeimage.png"
+        type = "image/x-icon">
+</head>
+
+<style>
+        /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 500px;
+  margin-left: 200px;
+  margin-right: 60px;
+  margin-bottom: 20px;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+/* Style the back side */
+.flip-card-back {
+  background-color: black;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+</style>
+
+<style>
+body {
+  background: rgb(2,0,36);
+  background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 19%, rgba(0,212,255,1) 100%);
+  }
+</style>
+
+<br>
+<div class="" style="width:800px; margin:0 auto;">
+<h1 class="p-3 mb-2 text-white" style="text-align:center; font-family:Dishonorable Mention (Comic Sans); background-color: black;">Search Results</h1>
+</div>
+<br>
+
+<div class="row">
+    {% for Game in game %}
+    <div class="col-md-auto">
+    <div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="{{Game.cover_image}}" class="card-img-top" style="width:300px;height:500px;">
+    </div>
+    <div class="flip-card-back">
+        <br>
+      <h1>{{Game.Name}}</h1>
+        <br>
+        <p>{{Game.Description}}</p>
+        <br>
+      <p>Developer: {{Game.Developer}}</p>
+        <br>
+      <p>${{Game.price}}</p>
+        <br>
+        {% if user.is_authenticated %}
+        <a href="nobuy"  class="btn btn-light">Buy Now</a>
+        {% else %}
+        <a href="account/login"  class="btn btn-light">Buy Now</a>
+        {% endif %}
+    </div>
+  </div>
+</div>
+        <br>
+    </div>
+    {% endfor %}
+</div>
+<br>
+{% endblock %}
+
+
+</html>
