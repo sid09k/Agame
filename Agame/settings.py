@@ -28,6 +28,11 @@ ALLOWED_HOSTS = ["agame-com.herokuapp.com"]
 
 # Application definition
 
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    #'django.contrib.staticfiles.finders.AppDirectoriesFinder',    #causes verbose duplicate notifications in django 1.9
+)
+
 INSTALLED_APPS = [
     'admin_interface',
     'colorfield',
